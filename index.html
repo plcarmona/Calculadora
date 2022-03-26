@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1 id="result">Hello, world!</h1>
+    <div class="container bg-black ">
+        <div id="display"></div>
+
+        <button id="n7">7</button>
+        <button id="n8">8</button>
+        <button id="n9">9</button>
+        <button id="div">/</button>
+        <button id="n4">4</button>
+        <button id="n5">5</button>
+        <button id="n6">6</button>
+        <button id="mult">*</button>
+        <button id="n1">1</button>
+        <button id="n2">2</button>
+        <button id="n3">3</button>
+        <button id="rest">-</button>
+        <button id="n0">0</button>
+        <button id="b">.</button>
+        <button id="del">x</button>
+        <button id="sum">+</button>
+        <button id="enter">=</button>
+      <script>
+        var de=0;
+        var resultd=0;
+      
+        var memory=0;
+        let op=0;
+          document.body.onclick=()=> {
+            if(op<0)
+              document.getElementById("result").textContent=de+"."+resultd.toString();
+            else
+              document.getElementById("result").textContent=de;
+          }
+        const n0= document.querySelector("#n0")
+        const n1= document.querySelector("#n1")
+        const n2= document.querySelector("#n2")
+        const n3= document.querySelector("#n3")
+        const n4= document.querySelector("#n4")
+        const n5= document.querySelector("#n5")
+        const n6= document.querySelector("#n6")
+        const n7= document.querySelector("#n7")
+        const n8= document.querySelector("#n8")
+        const n9= document.querySelector("#n9")  
+        if(op>=0)
+      
+          n0.onclick=()=>de=de*10
+          n1.onclick=()=>de=de*10+1
+          n2.onclick=()=>de=de*10+2
+          n3.onclick=()=>de=de*10+3
+          n4.onclick=()=>de=de*10+4
+          n5.onclick=()=>de=de*10+5
+          n6.onclick=()=>de=de*10+6
+          n7.onclick=()=>de=de*10+7
+          n8.onclick=()=>de=de*10+8    
+          n9.onclick=()=>de=de*10+9
+        if(op<0){
+          n0.onclick=()=>resultd=resultd*10
+          n1.onclick=()=>resultd=resultd*10+1
+          n2.onclick=()=>resultd=resultd*10+2
+          n3.onclick=()=>resultd=resultd*10+3
+          n4.onclick=()=>resultd=resultd*10+4
+          n5.onclick=()=>resultd=resultd*10+5
+          n6.onclick=()=>resultd=resultd*10+6
+          n7.onclick=()=>resultd=resultd*10+7
+          n8.onclick=()=>resultd=resultd*10+8    
+          n9.onclick=()=>resultd=resultd*10+9
+
+        }
+        const b = document.querySelector("#b")
+        b.onclick=()=>{
+          op=-1   
+        }
+        const del= document.querySelector("#del")    
+        del.onclick=()=>de=(de-de%10)/10
+
+        
+        const sum= document.querySelector("#sum")    
+        sum.onclick=()=>{
+        memory=de
+        de=0
+        op=1
+        }
+      </script>
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
