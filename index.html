@@ -10,39 +10,58 @@
 
     <title>Hello, world!</title>
   </head>
-  <body>
-    <h1 id="result">Hello, world!</h1>
-    <div class="container bg-black ">
-        <div id="display"></div>
+  <body class="bg-white align-items-center">
+    
+    <div class="btn-group bg-black d-flex flex-column rounded row "role="group"> 
+        <div class="bg-white col-md-4 rounded row " id="display">
+          <h1 class="d-flex flex-row justify-content-center" id="resulti"></h1></div>
+        <div role="group" class="row">
 
-        <button id="n7">7</button>
-        <button id="n8">8</button>
-        <button id="n9">9</button>
-        <button id="div">/</button>
-        <button id="n4">4</button>
-        <button id="n5">5</button>
-        <button id="n6">6</button>
-        <button id="mult">*</button>
-        <button id="n1">1</button>
-        <button id="n2">2</button>
-        <button id="n3">3</button>
-        <button id="rest">-</button>
-        <button id="n0">0</button>
-        <button id="b">.</button>
-        <button id="del">x</button>
-        <button id="sum">+</button>
-        <button id="enter">=</button>
-      <script>
-        var de=0;
-        var resultd=0;
+          <h1 class="d-flex flex-row justify-content-center" id="result">0</h1></div>
+          <div class="d-flex flex-row justify-content-center" >
+              <button class="btn btn-primary btn-lg btn-block col-md-1" id="n7">7</button>
+              <button class="btn btn-primary btn-lg btn-block col-md-1"id="n8">8</button>
+              <button class="btn btn-primary btn-lg btn-block col-md-1"id="n9">9</button>
+              <button class ="btn btn-warning btn-block col-md-1"id="div">/</button>
+
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+              <button class="btn btn-primary btn-lg  col-md-1"id="n4">4</button>
+              <button class="btn btn-primary btn-lg col-md-1"id="n5">5</button>
+              <button class="btn btn-primary btn-lg col-md-1"id="n6">6</button>
+              <button class ="btn btn-success col-md-1"id="mult">*</button>
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+              <button class="btn btn-primary btn-lg col-md-1"id="n1">1</button>
+              <button class="btn btn-primary btn-lg col-md-1"id="n2">2</button>
+              <button class="btn btn-primary btn-lg col-md-1"id="n3">3</button>
+              <button class ="btn btn-warning col-md-1"id="rest">-</button>
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+              <button class="btn btn-primary btn-lg btn-block col-md-1"id="n0">0</button>
+              <button class="btn btn-primary btn-lg btn-block col-md-1"id="b">.</button>
+              <button class="btn btn-danger btn-lg btn-block col-md-1"id="del"> x</button>
+              <button class ="btn btn-success btn-block col-md-1"id="sum">+</button>
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+
+            <button class ="btn btn-dark btn-block col-md-4 justify-content-center"id="enter">=</button>
+          </div>
       
-        var memory=0;
+        </div>
+
+
+    </div>
+
+      <script>
+        var expa=0;
+        var expb=0;
+        var d=true;
+        var decimal=0;
+        var result=0;
         let op=0;
           document.body.onclick=()=> {
-            if(op<0)
-              document.getElementById("result").textContent=de+"."+resultd.toString();
-            else
-              document.getElementById("result").textContent=de;
+              document.getElementById("result").textContent=expa;
           }
         const n0= document.querySelector("#n0")
         const n1= document.querySelector("#n1")
@@ -53,49 +72,143 @@
         const n6= document.querySelector("#n6")
         const n7= document.querySelector("#n7")
         const n8= document.querySelector("#n8")
-        const n9= document.querySelector("#n9")  
-        if(op>=0)
-      
-          n0.onclick=()=>de=de*10
-          n1.onclick=()=>de=de*10+1
-          n2.onclick=()=>de=de*10+2
-          n3.onclick=()=>de=de*10+3
-          n4.onclick=()=>de=de*10+4
-          n5.onclick=()=>de=de*10+5
-          n6.onclick=()=>de=de*10+6
-          n7.onclick=()=>de=de*10+7
-          n8.onclick=()=>de=de*10+8    
-          n9.onclick=()=>de=de*10+9
-        if(op<0){
-          n0.onclick=()=>resultd=resultd*10
-          n1.onclick=()=>resultd=resultd*10+1
-          n2.onclick=()=>resultd=resultd*10+2
-          n3.onclick=()=>resultd=resultd*10+3
-          n4.onclick=()=>resultd=resultd*10+4
-          n5.onclick=()=>resultd=resultd*10+5
-          n6.onclick=()=>resultd=resultd*10+6
-          n7.onclick=()=>resultd=resultd*10+7
-          n8.onclick=()=>resultd=resultd*10+8    
-          n9.onclick=()=>resultd=resultd*10+9
+        const n9= document.querySelector("#n9")
+        
+        const b= document.querySelector("#b")
+        const div= document.querySelector("#div")
+        const mult= document.querySelector("#mult")
+        const rest= document.querySelector("#rest")
+        const sum= document.querySelector("#sum")
+        const del= document.querySelector("#del")
+        const enter= document.querySelector("#enter")
 
+
+        function input(a){
+          let c=1;
+          let i=0;
+          if(expa%1>0){d=false}
+          if(d)
+            result= result*10+a
+          if(!d){
+            decimal=decimal*10+a; 
+          }
+          expa=result+decimal/Math.pow(10,decimal.toString().length);
         }
-        const b = document.querySelector("#b")
-        b.onclick=()=>{
-          op=-1   
+        function RandD(){
+          decimal=expa%1;
+          result=expa-decimal;
         }
-        const del= document.querySelector("#del")    
-        del.onclick=()=>de=(de-de%10)/10
+        function delit(){
+          if(d){result=(result-(result)%10)/10}
+          else{decimal=(decimal-(decimal)%10)/10}
+          expa=result+decimal/Math.pow(10,decimal.toString().length);
+          RandD();
+        }
+
+
+        function calculate(a,b,c){
+          switch(c){
+            case 1:
+              expa=b/a;
+              expb=0;
+              RandD();
+              break;
+            case 2:
+              expa=a*b;
+              expb=0;
+              RandD();
+              break;
+            case 3:
+              expa=b-a;
+              expb=0;
+              RandD();
+              break;
+            case 4:   
+              expa=a+b;
+              expb=0;
+              RandD();
+              break;
+          }
+        }
+        function ente(){
+          if(op==0){
+            return ;
+          }
+          if(op!=0){
+
+            
+            calculate(expa,expb,op);
+            console.log(expa,expb,op)
+            op=0;
+            d=true
+            console.log(expa)
+          }
+        }
+
 
         
-        const sum= document.querySelector("#sum")    
-        sum.onclick=()=>{
-        memory=de
-        de=0
-        op=1
+      
+        n0.onclick=()=>input(0)
+        n1.onclick=()=>input(1)
+        n2.onclick=()=>input(2)
+        n3.onclick=()=>input(3)
+        n4.onclick=()=>input(4)
+        n5.onclick=()=>input(5)
+        n6.onclick=()=>input(6)
+        n7.onclick=()=>input(7)
+        n8.onclick=()=>input(8)   
+        n9.onclick=()=>input(9)
+        b.onclick=()=>d=false;
+        div.onclick  =()=>{
+          if(expb!=0){ente()}
+          expb=expa
+          expa=0;
+          decimal=0;
+          result=0;
+          d=true;
+          op=1;
+          
         }
+        mult.onclick=()=>{
+
+          if(expb!=0){ente()}
+          expb=expa
+          expa=0;
+          decimal=0;
+          result=0;
+          d=true;
+          op=2;
+        }
+        rest.onclick=()=>{
+
+          if(expb!=0){ente()}
+          expb=expa
+          expa=0;
+          decimal=0;
+          result=0;
+          d=true;
+          op=3;
+        }
+        sum.onclick=()=>{
+
+          if(expb!=0){ente()}
+          expb=expa
+          expa=0;
+          decimal=0;
+          result=0;
+          d=true;
+          op=4;
+        }
+        enter.onclick=()=>{
+          ente();
+        }
+        del.onclick=()=>{
+          delit();
+        }
+       
       </script>
 
-    </div>
+  
 
     <!-- Optional JavaScript; choose one of the two! -->
 
